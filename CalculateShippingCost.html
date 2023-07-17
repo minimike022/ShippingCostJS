@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input placeholder = 'Cost of Order' class ="element" onkeydown="
+        handleEventKeyTotal(event)
+        ">
+    <button onclick="
+        calculateTotal()
+    ">Button</button>
+    <p id="total"></p>
+    <script>
+        const calculateTotal = () => {
+            let shipping = 15
+            const inputElement = document.querySelector('.element');
+            let num = Number(inputElement.value)
+            if (num < 40) {
+                num += shipping
+                document.getElementById("total").textContent = num
+            }
+            else if (num >= 40) {
+                document.getElementById("total").textContent = num
+            }
+        }
+        const handleEventKeyTotal = (event) => {
+            if(event.key === 'Enter') {
+                calculateTotal()
+            }
+        }
+        
+
+        
+    </script>
+</body>
+</html>
